@@ -12,7 +12,11 @@ public abstract class BuilderPizza {
     // Builder pattern for class hierarchies
     // 用于层次结构的构造器模式
 
-    public enum Topping{HAM, MUSHROOM, ONION, PEPPER, SAUSAGE}
+    public enum Topping{HAM, MUSHROOM, ONION, PEPPER, SAUSAGE;
+
+        public void add(Topping requireNonNull) {
+        }
+    }
 
     final Set<Topping> toppings;
 
