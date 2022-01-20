@@ -8,6 +8,7 @@ import java.util.Objects;
  */
 public class NyPizza extends BuilderPizza {
     public enum Size {SMALL, MEDIUM, LARGE}
+    public enum Material {SAUSAGE, ONION, HAM}
 
     private final Size size;
 
