@@ -28,7 +28,20 @@ equals三原则：
 - **不可变**（final）的类永远不要提供clone()方法
 - 父类实现的clone()，必须考虑有没进行**深拷贝**的问题
 
+## Item 14 - compare to
 
+原则：
+
+`sgn(expression)` 表示数学中的符号函数，它被定义为：根据传入表达式的值是负数、零或正数，对应返回 -1、0 或 1。
+
+- 相反性：如果`sgn(x.compareTo(y)) == -sgn(y.compareTo(x))`则（`x.compareTo(y)` 当且仅当 `y.compareTo(x)` 抛出异常时才抛出异常）。
+- 传递性：如果`(x.compareTo(y) > 0 && y.compareTo(z) > 0)` 则 `x.compareTo(z) > 0`。
+-  `x.compareTo(y) == 0` 时，所有的 z 满足 `sgn(x.compareTo(z)) == sgn(y.compareTo(z))`
+
+注意：
+
+1. 论何时实现具有排序性质的值类，都应该让类实现 Comparable 接口；
+2. 在 compareTo 方法的实现中比较字段值时，避免使用 < 和 > 操作符，应使用包装类中的静态比较方法或 Comparator 接口中的 comparator 构造方法
 
 
 
