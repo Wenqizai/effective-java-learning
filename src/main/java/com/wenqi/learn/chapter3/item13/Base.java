@@ -8,6 +8,13 @@ package com.wenqi.learn.chapter3.item13;
  * @date 2022/1/22
  */
 public class Base {
+    /**
+     * 通过构造器实现, 子类调用super.clone()就会出现 x.clone().getClass() != x.getClass() 的行为
+     * 修复: 1. 移除clone()方法  2. new Base() 替换成 super.clone()
+     *
+     * @return
+     * @throws CloneNotSupportedException
+     */
     @Override
     protected Object clone() throws CloneNotSupportedException {
         return new Base();

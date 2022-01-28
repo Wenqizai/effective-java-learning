@@ -30,13 +30,25 @@ public class Stack {
         return result;
     }
 
-    // Ensure space for at least one more element.
+    /**
+     * Ensure space for at least one more element.
+     * 确保至少再有一个元素的空间
+     *
+     */
     private void ensureCapacity() {
         if (elements.length == size) {
             elements = Arrays.copyOf(elements, 2 * size + 1);
         }
     }
 
+    /**
+     * 如果没有实现clone()方法, 子类调用super.clone(), 此时子类只会复制elements的引用
+     * 子类和父类公用同一个elements数组将会引发灾难, 各种空指针
+     *
+     * 解决: 父类实现clone()方法, 并调用elements.clone(), 产生elements副本供子类使用
+     *
+     * @return
+     */
     @Override
     public Stack clone() {
         try {

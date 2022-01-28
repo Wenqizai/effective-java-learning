@@ -15,15 +15,18 @@ equals三原则：
 
 > 如果**对象里某些 get 方法被覆写**，存在**抛出异常**的情况，则可能会因为打印日志而影响正常业务流程的执行。
 
-## Item13 - clone
+## Item 13 - clone
 
 原则：
 
 - `x.clone() != x`
 - `x.clone().getClass() == x.getClass()` 返回true
-- `x.clone().equals(x)` 返回true
+- `x.clone().equals(x)` 返回true，注意：成立的前提是重写了`equals()`方法
 
-- 不可变的类永远不要提供clone()方法
+注意：
+
+- **不可变**（final）的类永远不要提供clone()方法
+- 父类实现的clone()，必须考虑有没进行**深拷贝**的问题
 
 
 
