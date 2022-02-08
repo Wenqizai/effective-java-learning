@@ -22,3 +22,33 @@
 - 数组运行时类型安全，而不是编译时类型安全；`List`与之相反。
 - 数组与泛型不能很好混合，混合在一起并得到编译时错误或警告，那么你的第一个反应该是将数组替换为 `List`。
 
+## item31
+
+<u>**里氏替换原则: 派生类（子类）对象可以在程序中代替其基类（超类）对象。**</u>
+
+`List<Object>`可以放入任何对象 ， `List<String>`只能放入字符串。故`List<String>` 不能做 `List<Object>` 能做的所有事情，所以 `List<String>`不是`List<Object>`子类型。（由里氏替换原则可以理解这点）
+
+>  PECS 表示生产者应使用extends，消费者应使用super。
+
+如果参数化类型表示 T 生成器，则使用 `<? extends T>`；如果它表示一个 T 消费者，则使用 `<? super T>`。在我们的 Stack 示例中，pushAll 的 src 参数生成 E 的实例供 Stack 使用，因此 src 的适当类型是 `Iterable<? extends E>`；popAll 的 dst 参数使用 Stack 中的 E 实例，因此适合 dst 的类型是 `Collection<? super E>`。PECS 助记符捕获了指导通配符类型使用的基本原则。Naftalin 和 Wadler 称之为 Get and Put 原则
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
