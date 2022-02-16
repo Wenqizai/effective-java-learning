@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import static org.springframework.util.StreamUtils.BUFFER_SIZE;
+
 
 /**
  * @author liangwenqi
@@ -47,7 +47,7 @@ public class CloseResource {
         try {
             OutputStream out = new FileOutputStream(dst);
             try {
-                byte[] buf = new byte[BUFFER_SIZE];
+                byte[] buf = new byte[1024];
                 int n;
                 while ((n = in.read(buf)) >= 0) {
                     out.write(buf, 0, n);
@@ -83,7 +83,7 @@ public class CloseResource {
      */
     static void copyBetter(String src, String dst) throws IOException {
         try (InputStream in = new FileInputStream(src);OutputStream out = new FileOutputStream(dst)) {
-            byte[] buf = new byte[BUFFER_SIZE];
+            byte[] buf = new byte[1024];
             int n;
             while ((n = in.read(buf)) >= 0) {
                 out.write(buf, 0, n);
